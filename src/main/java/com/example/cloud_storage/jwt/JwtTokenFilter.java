@@ -32,7 +32,8 @@ public class JwtTokenFilter extends OncePerRequestFilter {
                                     FilterChain filterChain)
             throws ServletException, IOException {
 
-        final String header = request.getHeader(HttpHeaders.AUTHORIZATION);
+//        final String header = request.getHeader(HttpHeaders.AUTHORIZATION);
+        final String header = request.getHeader("auth-token");
 
         if (ObjectUtils.isEmpty(header) || !header.startsWith("Bearer")) {
             log.warn("JWT Token does not begin with Bearer String");
